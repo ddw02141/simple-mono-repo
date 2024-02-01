@@ -1,3 +1,2 @@
 # simple-mono-repo
-{"a": 1, "b": 3}
-new line
+{"a": 1, "b": 2, "c": 3}
