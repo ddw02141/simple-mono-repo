@@ -1,13 +1,20 @@
-name: autoupdate
+name: PR Auto Update
+
 on:
   push:
     branches:
       - main
 jobs:
   autoupdate:
-    name: autoupdate
     runs-on: ubuntu-22.04
     steps:
-      - uses: docker://chinthakagodawita/autoupdate-action:v1
+      - name: Automatically update PR
+        uses: docker://chinthakagodawita/autoupdate-action:v1
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+        with:
+          base: 'main'
+          required_apporval_count: 0
+          require_passed_checks: true
+          sort: 'created'
+          direction: 'desc'
